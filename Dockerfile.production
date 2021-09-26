@@ -1,0 +1,17 @@
+FROM node:14.16
+WORKDIR /
+
+# Важно для кеширования слоев
+COPY package.json /package.json
+COPY package-lock.json /package-lock.json
+
+RUN npm install
+
+COPY app/. app/.
+COPY tests/. tests/.
+COPY config/. config/.
+COPY babel.config.js babel.config.js
+
+EXPOSE 8080
+
+CMD npm start

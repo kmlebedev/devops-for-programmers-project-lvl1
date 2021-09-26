@@ -1,0 +1,6 @@
+version: '2'
+
+services:
+  app:
+    image: kmlebedev/devops-for-programmers-project-lvl1:test
+    command: ["npm", "test"]
