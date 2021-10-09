@@ -4,19 +4,19 @@ install:
 server:
 	npx nodos server
 
-test:
+test: install
 	npm -s test
 
 start:
 	npm start
 
-build-test:
-	docker build --no-cache -t kmlebedev/devops-for-programmers-project-lvl1:test -f Dockerfile.production .
+build-dev:
+	docker build --no-cache -t kmlebedev/devops-for-programmers-project-lvl1:dev -f Dockerfile.production .
 
 build:
 	docker build --no-cache -t kmlebedev/devops-for-programmers-project-lvl1 -f Dockerfile .
 
 run: install test server
 
-docker-test:
+ci: build-dev
 	docker-compose -f docker-compose.yml up --abort-on-container-exit
