@@ -9,4 +9,4 @@ services:
   db:
     image: postgres
     env_file:
-     - .env
+     - ${ENV_FILE:-.env.example}
