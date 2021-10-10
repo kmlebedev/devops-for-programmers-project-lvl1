@@ -4,3 +4,9 @@ services:
   app:
     image: kmlebedev/devops-for-programmers-project-lvl1:dev
     command: ["npm", "test"]
+    depends_on:
+      - db
+  db:
+    image: postgres
+    env_file:
+     - .env
